@@ -1,6 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Custom color variables for the CTASection */
+  --primary-navy: 220 13% 18%;
+  --primary-blue: 217 91% 60%;
+  --accent-gold: 45 93% 47%;
+  --text-light: 215 16% 47%;
+  --text-dark: 215 25% 27%;
+  
+  /* Shadow variables */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-elegant: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 @media (prefers-color-scheme: dark) {
