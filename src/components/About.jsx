@@ -1,9 +1,9 @@
 'use client';
 
-import { 
-  Scale, 
-  Users, 
-  MapPin, 
+import {
+  Scale,
+  Users,
+  MapPin,
   Award,
   CheckCircle,
   Globe,
@@ -11,8 +11,48 @@ import {
   Shield
 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isTeamVisible, setIsTeamVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('about');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const teamObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTeamVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const teamSection = document.getElementById('team-section');
+    if (teamSection) {
+      teamObserver.observe(teamSection);
+    }
+
+    return () => teamObserver.disconnect();
+  }, []);
+
   const achievements = [
     "Canadian Immigration law and International Recruitment",
     "Federal Court and Immigration and Refugee Board cases",
@@ -44,7 +84,12 @@ const About = () => {
     <section id="about" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Mobile Hero Image */}
-        <div className="lg:hidden mb-12">
+        <div 
+          className={`lg:hidden mb-12 transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+          style={{ transitionDelay: '0.2s' }}
+        >
           <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-xl">
             <Image
               src="/Aboutuspic.jpg"
@@ -62,7 +107,12 @@ const About = () => {
         </div>
 
         {/* Main About Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+        <div 
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+          style={{ transitionDelay: '0.4s' }}
+        >
           <div>
             <div className="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               About Our Firm
@@ -118,8 +168,108 @@ const About = () => {
           </div>
         </div>
 
-        {/* Feature Boxes - Full Width */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {/* Team Members */}
+        <div id="team-section" className="relative py-20 overflow-hidden w-full">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{
+              backgroundImage: "url('/homePic.jpg')",
+              backgroundAttachment: 'fixed'
+            }}
+          >
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-4">
+            <div 
+              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+                isTeamVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              }`}
+              style={{ transitionDelay: '0.2s' }}
+            >
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Our Legal Team
+              </h3>
+              <p className="text-xl text-gray-200">
+                Experienced professionals dedicated to your immigration success
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {team.map((member, index) => (
+                                 <div
+                       key={index}
+                       className={`bg-white text-center hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-lg shadow-lg p-8 ${
+                         isTeamVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                       }`}
+                       style={{
+                         transitionDelay: `${0.4 + index * 0.2}s`,
+                         transitionDuration: '0.8s'
+                       }}
+                     >
+                       {member.name === "Robert Gertler" ? (
+                         // Robert Gertler - use robert Gtlr.jpg
+                         <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
+                           <Image
+                             src="/robert Gtlr.jpg"
+                             alt={member.name}
+                             width={112}
+                             height={112}
+                             className="object-cover w-full h-full"
+                           />
+                         </div>
+                       ) : member.name === "Fahreda Caissie" ? (
+                         // Fahreda Caissie - use fahreda caissie.jpg
+                         <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
+                           <Image
+                             src="/fahreda caissie.jpg"
+                             alt={member.name}
+                             width={112}
+                             height={112}
+                             className="object-cover w-full h-full"
+                           />
+                         </div>
+                       ) : member.name === "Ken Van Horne" ? (
+                         // Ken Van Horne - use ken.jpg
+                         <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
+                           <Image
+                             src="/ken.jpg"
+                             alt={member.name}
+                             width={112}
+                             height={112}
+                             className="object-cover w-full h-full"
+                           />
+                         </div>
+                       ) : (
+                         // Other team members - use icon
+                         <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                           <Users className="h-10 w-10 text-blue-600" />
+                         </div>
+                       )}
+              <h4 className="text-xl font-bold text-blue-900 mb-2">
+                {member.name}
+              </h4>
+              <p className="text-blue-600 font-semibold mb-3">
+                {member.role}
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {member.description}
+              </p>
+            </div>
+          ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Boxes - After Team Section */}
+        <div 
+          className={`mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+          style={{ transitionDelay: '0.8s' }}
+        >
           <div className="bg-gradient-to-br from-blue-900 to-blue-700 text-white rounded-lg p-8 shadow-xl">
             <div className="flex items-center space-x-4 mb-4">
               <Scale className="h-8 w-8 text-yellow-400" />
@@ -148,102 +298,9 @@ const About = () => {
             <p className="text-white/90">
               Canada offers over 60 different immigration programs. We help you choose the right one.
             </p>
-                  </div>
-      </div>
-
-        {/* Team Members */}
-        <div className="relative py-20 overflow-hidden w-full">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/homePic.jpg')",
-              backgroundAttachment: 'fixed'
-            }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-          </div>
-          
-          {/* Content */}
-          <div className="relative z-10 container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Our Legal Team
-              </h3>
-              <p className="text-xl text-gray-200">
-                Experienced professionals dedicated to your immigration success
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {team.map((member, index) => (
-            <div 
-              key={index} 
-              className="bg-white text-center hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-lg shadow-lg p-8"
-            >
-              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-10 w-10 text-blue-600" />
-              </div>
-              <h4 className="text-xl font-bold text-blue-900 mb-2">
-                {member.name}
-              </h4>
-              <p className="text-blue-600 font-semibold mb-3">
-                {member.role}
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {member.description}
-              </p>
-            </div>
-          ))}
-            </div>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 bg-white rounded-lg shadow-lg p-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-blue-900 mb-4">
-              Why Choose Summit Immigration?
-            </h3>
-            <p className="text-xl text-gray-600">
-              Your trusted partner in immigration success
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-blue-600" />
-              </div>
-              <h4 className="text-2xl font-bold text-blue-900 mb-2">60+</h4>
-              <p className="text-gray-600">Immigration Programs Available</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building className="h-8 w-8 text-yellow-600" />
-              </div>
-              <h4 className="text-2xl font-bold text-blue-900 mb-2">Toronto</h4>
-              <p className="text-gray-600">Head Office Location</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-green-600" />
-              </div>
-              <h4 className="text-2xl font-bold text-blue-900 mb-2">3</h4>
-              <p className="text-gray-600">Expert Legal Professionals</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-purple-600" />
-              </div>
-              <h4 className="text-2xl font-bold text-blue-900 mb-2">Federal</h4>
-              <p className="text-gray-600">Court & IRB Cases</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
