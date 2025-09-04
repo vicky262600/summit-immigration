@@ -1,9 +1,12 @@
 'use client';
 
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header className="bg-white shadow-xl sticky top-0 z-50 border-b border-gray-100">
       {/* Top contact bar */}
@@ -32,7 +35,7 @@ const Header = () => {
 
       {/* Main navigation */}
       <nav className="max-w-7xl mx-auto px-8 py-4">
-        <div className="grid grid-cols-[250px_1fr_150px] items-center">
+        <div className="flex items-center justify-between">
           {/* Left: Logo + Brand */}
           <div className="flex items-center space-x-3">
             <div className="w-28 h-28 relative shrink-0">
@@ -46,7 +49,8 @@ const Header = () => {
             </div>
             <div className="leading-tight">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
-                Summit Immigration
+                Summit<br />
+                Immigration
               </div>
               <div className="text-base font-medium text-gray-500 tracking-wide">
                 Consulting Group
@@ -54,7 +58,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Center: Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center space-x-6">
             {[
               { href: '/', label: 'Home' },
@@ -75,16 +79,64 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Right: Action Button */}
-          <div className="flex items-center justify-end">
+          {/* Right: Action Button + Mobile Menu */}
+          <div className="flex items-center space-x-4">
             <button
-              className="px-4 py-2 text-base border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+              className="hidden md:block px-4 py-2 text-base border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
               onClick={() => (window.location.href = '/detailed-assessment')}
             >
               Assessment
             </button>
+            
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200 py-4">
+            <div className="flex flex-col space-y-4">
+              {[
+                { href: '/', label: 'Home' },
+                { href: '/aboutUs', label: 'About Us' },
+                { href: '/services', label: 'Services' },
+                { href: '/immigration-appeals', label: 'Immigration Appeals' },
+                { href: '/refugee-claims', label: 'Refugee Claims' },
+                { href: '/contact-us', label: 'Contact Us' },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-bold text-lg px-4 py-2 hover:bg-gray-50 rounded-lg"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="px-4 pt-2">
+                <button
+                  className="w-full px-4 py-3 text-base border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-bold"
+                  onClick={() => {
+                    window.location.href = '/detailed-assessment';
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Assessment
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
