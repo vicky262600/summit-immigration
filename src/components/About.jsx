@@ -148,20 +148,34 @@ const About = () => {
             <p className="text-white/90">
               Canada offers over 60 different immigration programs. We help you choose the right one.
             </p>
-          </div>
-        </div>
+                  </div>
+      </div>
 
         {/* Team Members */}
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-blue-900 mb-4">
-            Our Legal Team
-          </h3>
-          <p className="text-xl text-gray-600">
-            Experienced professionals dedicated to your immigration success
-          </p>
-        </div>
+        <div className="relative py-20 overflow-hidden w-full">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{
+              backgroundImage: "url('/homePic.jpg')",
+              backgroundAttachment: 'fixed'
+            }}
+          >
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Our Legal Team
+              </h3>
+              <p className="text-xl text-gray-200">
+                Experienced professionals dedicated to your immigration success
+              </p>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, index) => (
             <div 
               key={index} 
@@ -181,6 +195,8 @@ const About = () => {
               </p>
             </div>
           ))}
+            </div>
+          </div>
         </div>
 
         {/* Stats Section */}
