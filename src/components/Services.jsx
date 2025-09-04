@@ -12,8 +12,28 @@ import {
   UserCheck,
   Globe
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Services = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('services');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const services = [
     {
       icon: <Briefcase className="h-8 w-8" />,
@@ -86,7 +106,11 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div 
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
           <h2 className="text-4xl font-bold text-blue-900 mb-4">
             Our Immigration Services
           </h2>
@@ -100,10 +124,16 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 shadow-md"
+              className={`group bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 border border-gray-100 shadow-md ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              }`}
+              style={{ 
+                transitionDelay: `${index * 0.1}s`,
+                transitionDuration: '0.8s'
+              }}
             >
               <div className="flex items-center space-x-4 mb-4">
-                <div className="p-3 bg-gradient-to-br from-blue-600 to-yellow-400 text-white rounded-lg group-hover:scale-110 transition-transform">
+                <div className="p-3 bg-gradient-to-br from-blue-600 to-yellow-400 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <div>
@@ -118,14 +148,19 @@ const Services = () => {
               <p className="text-gray-600 leading-relaxed mb-4">
                 {service.description}
               </p>
-              <button className="text-blue-600 hover:text-yellow-500 font-medium transition-colors">
+              <button className="text-blue-600 hover:text-yellow-500 font-medium transition-colors duration-300 group-hover:translate-x-1">
                 Learn More →
               </button>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div 
+          className={`text-center mt-12 transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+          style={{ transitionDelay: '1.2s' }}
+        >
           <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
             Get Detailed Assessment
           </button>

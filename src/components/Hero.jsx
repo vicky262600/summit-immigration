@@ -1,14 +1,21 @@
 'use client';
 
 import { ArrowRight, Users, Globe, Award } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <section className="relative min-h-[700px] flex items-center bg-gradient-to-br from-gray-900 to-blue-900 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{ backgroundImage: `url(/homepic.jpg)` }}
+        style={{ backgroundImage: `url(/globepicHome.jpg)` }}
       />
       
       {/* Content */}
@@ -16,7 +23,12 @@ const Hero = () => {
         <div className="max-w-4xl space-y-8">
           
           {/* Small intro with blue line */}
-          <div className="flex items-center gap-3">
+          <div 
+            className={`flex items-center gap-3 transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            }`}
+            style={{ transitionDelay: '0.2s' }}
+          >
             <div className="w-1 h-10 bg-blue-400"></div>
             <p className="text-xl md:text-2xl font-bold text-white tracking-wide">
               Welcome to Summit Immigration Consulting Group
@@ -24,12 +36,22 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold text-white leading-snug">
+          <h2 
+            className={`text-4xl md:text-5xl font-bold text-white leading-snug transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            }`}
+            style={{ transitionDelay: '0.4s' }}
+          >
             Your #1 Provider for Canadian Immigration Services!
           </h2>
 
           {/* Description */}
-          <p className="text-gray-200 leading-relaxed text-lg max-w-3xl">
+          <p 
+            className={`text-gray-200 leading-relaxed text-lg max-w-3xl transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            }`}
+            style={{ transitionDelay: '0.6s' }}
+          >
             Summit Immigration Consulting Group engages exclusively in the practice of UK, Canadian 
             and American immigration law. Our lawyers and certified immigration consultants are 
             based in all three locations, however the head office is in Toronto, Canada. 
@@ -39,7 +61,12 @@ const Hero = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div 
+            className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            }`}
+            style={{ transitionDelay: '0.8s' }}
+          >
             <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group">
               Start Your Application
               <ArrowRight className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform" />
@@ -50,7 +77,12 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
+          <div 
+            className={`grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            }`}
+            style={{ transitionDelay: '1s' }}
+          >
             <div className="flex items-center space-x-3">
               <div className="bg-blue-600 text-white p-3 rounded-lg">
                 <Users className="h-6 w-6" />
