@@ -64,19 +64,19 @@ const About = () => {
 
   const team = [
     {
-      name: "Ken Van Horne",
-      role: "Founding Member",
-      description: "Law degree from UK, specialized in immigration law and consultancy for corporate immigration, temporary and permanent residence cases"
+      name: "Ken Van-Horne B.A. LLB",
+      role: "Citizen and Immigration Specialist",
+      description: "Ken is the founder of Summit Immigration Consulting Group and focuses on all immigration matters, including study permits, visitor visas, Express Entry, Provincial Nominee Programs, LMIAs, corporate immigration, work permits, spousal sponsorship, citizenship and permanent residence applications"
     },
     {
-      name: "Robert Gertler",
-      role: "Refugee Lawyer",
-      description: "Specializes in Judicial Review and refugee law matters"
+      name: "Robert Gertler B.A. LLB",
+      role: "Senior Immigration and Refugee Lawyer",
+      description: "Robert mainly focuses on Refugee claims and Judicial Review matters that need to be handled at the Federal Court level. He is involved in all aspects of Immigration law, he devotes most of his practice to Immigration Appeals, Deportation, Refugee Claims, Stay Motions, Pre Removal Risk Assessments and Removal orders"
     },
     {
-      name: "Fahreda Caissie",
-      role: "Legal Specialist",
-      description: "Handles Canadian Pardons and US Waivers for travel to the USA"
+      name: "Rajender Singh B.A. LLB",
+      role: "Immigration Lawyer",
+      description: "Rajender primarily deals with Immigration Appeals, Judicial Review and litigation. His practice area handles Refugee Appeals, mandamus applications, fighting removal orders and deportations. He is also fluent in Hindi with a lot of experience in handling clients from India and Asia."
     }
   ];
 
@@ -209,30 +209,24 @@ const About = () => {
                          transitionDuration: '0.8s'
                        }}
                      >
-                       {member.name === "Robert Gertler" ? (
+                       {member.name === "Robert Gertler B.A. LLB" ? (
                          // Robert Gertler - use robert Gtlr.jpg
                          <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
                            <Image
-                             src="/robert_Gtlr.jpg"
+                             src="/robert Gtlr.jpg"
                              alt={member.name}
                              width={112}
                              height={112}
                              className="object-cover w-full h-full"
                            />
                          </div>
-                       ) : member.name === "Fahreda Caissie" ? (
-                         // Fahreda Caissie - use fahreda caissie.jpg
-                         <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
-                           <Image
-                             src="/fahreda_caissie.jpg"
-                             alt={member.name}
-                             width={112}
-                             height={112}
-                             className="object-cover w-full h-full"
-                           />
+                       ) : member.name === "Rajender Singh B.A. LLB" ? (
+                         // Rajender Singh - use icon for now
+                         <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                           <Users className="h-10 w-10 text-blue-600" />
                          </div>
-                       ) : member.name === "Ken Van Horne" ? (
-                         // Ken Van Horne - use ken.jpg
+                       ) : member.name === "Ken Van-Horne B.A. LLB" ? (
+                         // Ken Van-Horne - use ken.jpg
                          <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
                            <Image
                              src="/ken.jpg"

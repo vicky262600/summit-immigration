@@ -1,18 +1,7 @@
 'use client';
 
-import { 
-  Briefcase, 
-  GraduationCap, 
-  Users, 
-  Heart, 
-  Building, 
-  Shield,
-  FileText,
-  Clock,
-  UserCheck,
-  Globe
-} from "lucide-react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,67 +25,67 @@ const Services = () => {
   }, []);
   const services = [
     {
-      icon: <Briefcase className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Work Permits",
       description: "Professional assistance with work permit applications for temporary employment opportunities in Canada.",
       category: "Employment"
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Express Entry",
       description: "Expert guidance through the Express Entry system for skilled worker immigration to Canada.",
       category: "Permanent Residence"
     },
     {
-      icon: <Building className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Provincial Nominee Programs",
       description: "Specialized assistance with provincial nomination programs across Canada.",
       category: "Provincial"
     },
     {
-      icon: <GraduationCap className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Study Permits",
       description: "Complete guidance for international students seeking educational opportunities in Canada.",
       category: "Education"
     },
     {
-      icon: <Globe className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Visitor Visas",
       description: "Professional support for temporary visitor visa applications to Canada.",
       category: "Temporary"
     },
     {
-      icon: <Heart className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Super Visas",
       description: "Specialized services for parent and grandparent super visa applications.",
       category: "Family"
     },
     {
-      icon: <Shield className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Business Immigration",
       description: "Comprehensive support for entrepreneurs and business investors seeking Canadian residency.",
       category: "Business"
     },
     {
-      icon: <FileText className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Spousal Sponsorship",
       description: "Expert assistance with spousal and common-law partner sponsorship applications.",
       category: "Family"
     },
     {
-      icon: <UserCheck className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Citizenship Applications",
       description: "Professional guidance through the Canadian citizenship application process.",
       category: "Citizenship"
     },
     {
-      icon: <Clock className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "US Waivers",
       description: "Specialized legal services for US entry waivers and inadmissibility issues.",
       category: "Legal"
     },
     {
-      icon: <Shield className="h-8 w-8" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Judicial Review",
       description: "Expert legal representation for judicial review of immigration decisions.",
       category: "Legal"
@@ -145,7 +134,7 @@ const Services = () => {
               }}
             >
               <div className="flex items-center space-x-4 mb-4">
-                <div className="p-3 bg-gradient-to-br from-blue-600 to-yellow-400 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <div>
