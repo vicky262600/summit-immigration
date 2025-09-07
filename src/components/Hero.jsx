@@ -52,12 +52,7 @@ const Hero = () => {
             }`}
             style={{ transitionDelay: '0.6s' }}
           >
-            Summit Immigration Consulting Group engages exclusively in the practice of UK, Canadian 
-            and American immigration law. Our lawyers and certified immigration consultants are 
-            based in all three locations, however the head office is in Toronto, Canada. 
-            The firm deals with all matters that are dealt with by the Adjudication Division, 
-            the Appeal Division, Federal Court, and the Refugee Protection Division of the 
-            Immigration and Refugee Board.
+Summit Immigration Consulting Group engages exclusively in the practice of Canadian Immigration law. We represent our clients in all cases that are dealt with by IRCC, the Immigration and Refugee Board as well as Federal Court.
           </p>
 
           {/* Buttons */}
@@ -76,40 +71,46 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Stats */}
+          {/* Three Key Words */}
           <div 
-            className={`grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+            className={`flex flex-col md:flex-row justify-center items-center gap-16 md:gap-24 pt-20 transition-all duration-1000 ease-out ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
             style={{ transitionDelay: '1s' }}
           >
-            <div className="flex items-center space-x-3">
-              <div className="bg-blue-600 text-white p-3 rounded-lg">
-                <Users className="h-6 w-6" />
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white">4M+</div>
-                <div className="text-gray-300 text-sm">Expected New Immigrants (2019-2035)</div>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <div className="bg-yellow-400 text-blue-900 p-3 rounded-lg">
-                <Globe className="h-6 w-6" />
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white">3</div>
-                <div className="text-gray-300 text-sm">Countries Served</div>
+            <div className="relative group">
+              {/* Light effects on all four sides */}
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              
+              <div className="text-3xl md:text-4xl font-extrabold text-white text-center tracking-wider bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl px-4 py-2">
+                Experience
               </div>
             </div>
             
-            <div className="flex items-center space-x-3">
-              <div className="bg-blue-900 text-white p-3 rounded-lg">
-                <Award className="h-6 w-6" />
+            <div className="relative group">
+              {/* Light effects on all four sides */}
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              
+              <div className="text-3xl md:text-4xl font-extrabold text-white text-center tracking-wider bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl px-4 py-2">
+                Professionalism
               </div>
-              <div>
-                <div className="text-3xl font-bold text-white">#14</div>
-                <div className="text-gray-300 text-sm">Canada Global Retirement Ranking</div>
+            </div>
+            
+            <div className="relative group">
+              {/* Light effects on all four sides */}
+              <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-transparent via-white to-transparent opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+              
+              <div className="text-3xl md:text-4xl font-extrabold text-white text-center tracking-wider bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-2xl px-4 py-2">
+                Results
               </div>
             </div>
           </div>
