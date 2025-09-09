@@ -110,11 +110,12 @@ const ImmigrationAppeals = () => {
   return (
     <section id="appeals" className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative min-h-[500px] flex items-center bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
+      <div className="relative min-h-[500px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/ImmigrationAppeals1.jpg')` }}
         />
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div 

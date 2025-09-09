@@ -115,6 +115,7 @@ const Services = () => {
           <h2 className="text-4xl font-bold text-white mb-4">
             Our Immigration Services
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-white to-blue-200 mx-auto mb-6"></div>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Comprehensive immigration solutions for Canada, United Kingdom, and United States. 
             Our expert team provides professional guidance at every step of your journey.

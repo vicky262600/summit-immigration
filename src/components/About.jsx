@@ -65,7 +65,7 @@ const About = () => {
   const team = [
     {
       name: "Ken Van-Horne B.A. LLB",
-      role: "Citizen and Immigration Specialist",
+      role: "Citizenship and Immigration Specialist",
       description: "Ken is the founder of Summit Immigration Consulting Group and focuses on all immigration matters, including study permits, visitor visas, Express Entry, Provincial Nominee Programs, LMIAs, corporate immigration, work permits, spousal sponsorship, citizenship and permanent residence applications"
     },
     {
@@ -92,7 +92,7 @@ const About = () => {
         >
           <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/Aboutuspic.jpg"
+              src="/aboutus2.jpg"
               alt="Summit Immigration Consulting Group"
               fill
               className="object-cover"
@@ -151,7 +151,7 @@ const About = () => {
           <div className="relative hidden lg:block">
             <div className="w-full h-96 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/Aboutuspic.jpg"
+                src="/aboutus2.jpg"
                 alt="Summit Immigration Consulting Group"
                 fill
                 className="object-cover"
@@ -221,9 +221,15 @@ const About = () => {
                            />
                          </div>
                        ) : member.name === "Rajender Singh B.A. LLB" ? (
-                         // Rajender Singh - use icon for now
-                         <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                           <Users className="h-10 w-10 text-blue-600" />
+                         // Rajender Singh - use rajendr.jpg
+                         <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+                           <Image
+                             src="/rajendr.jpg"
+                             alt={member.name}
+                             width={128}
+                             height={128}
+                             className="object-cover w-full h-full scale-110 translate-x-1 translate-y-1"
+                           />
                          </div>
                        ) : member.name === "Ken Van-Horne B.A. LLB" ? (
                          // Ken Van-Horne - use ken.jpg

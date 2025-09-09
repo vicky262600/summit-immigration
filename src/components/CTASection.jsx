@@ -50,6 +50,7 @@ const CTASection = () => {
           <h2 className="text-4xl font-bold text-[hsl(var(--primary-navy))] mb-4">
             Get Started Today
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-xl text-[hsl(var(--text-light))] max-w-3xl mx-auto">
             Ready to begin your immigration journey? Contact our experienced team for 
             personalized guidance and professional legal assistance.
