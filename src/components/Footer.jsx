@@ -51,7 +51,6 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/services" className="hover:text-white transition-colors">Work Permits</a></li>
               <li><a href="/services" className="hover:text-white transition-colors">Express Entry</a></li>
               <li><a href="/services" className="hover:text-white transition-colors">Provincial Nominee Programs</a></li>
               <li><a href="/services" className="hover:text-white transition-colors">Study Permits</a></li>

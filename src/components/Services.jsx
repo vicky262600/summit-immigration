@@ -28,7 +28,8 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Work Permits",
       description: "Professional assistance with work permit applications for temporary employment opportunities in Canada.",
-      category: "Employment"
+      category: "Employment",
+      link: "/work-permits"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -40,7 +41,8 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Provincial Nominee Programs",
       description: "Specialized assistance with provincial nomination programs across Canada.",
-      category: "Provincial"
+      category: "Provincial",
+      link: "/provincial-nominee-programs"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -52,13 +54,15 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Visitor Visas",
       description: "Professional support for temporary visitor visa applications to Canada.",
-      category: "Temporary"
+      category: "Temporary",
+      link: "/visitor-visa"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Super Visas",
       description: "Specialized services for parent and grandparent super visa applications.",
-      category: "Family"
+      category: "Family",
+      link: "/super-visa"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -76,13 +80,15 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Citizenship Applications",
       description: "Professional guidance through the Canadian citizenship application process.",
-      category: "Citizenship"
+      category: "Citizenship",
+      link: "/citizenship-applications"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "US Waivers",
       description: "Specialized legal services for US entry waivers and inadmissibility issues.",
-      category: "Legal"
+      category: "Legal",
+      link: "/us-waivers"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -150,9 +156,12 @@ const Services = () => {
               <p className="text-gray-600 leading-relaxed mb-4">
                 {service.description}
               </p>
-              <button className="text-blue-600 hover:text-yellow-500 font-medium transition-colors duration-300 group-hover:translate-x-1">
+              <a 
+                href={service.link || '#'} 
+                className="text-blue-600 hover:text-yellow-500 font-medium transition-colors duration-300 group-hover:translate-x-1 inline-block"
+              >
                 Learn More →
-              </button>
+              </a>
             </div>
           ))}
         </div>
