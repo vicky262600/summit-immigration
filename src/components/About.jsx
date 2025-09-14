@@ -301,6 +301,30 @@ const About = () => {
           </div>
         </div>
 
+        {/* CTA Section */}
+        <div 
+          className={`mt-20 text-center transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+          style={{ transitionDelay: '1s' }}
+        >
+          <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-2xl p-12 shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Start Your Immigration Journey?
+            </h2>
+            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+              Our experienced legal team is here to guide you through every step of your immigration process. 
+              Get a detailed assessment of your case and discover the best path forward.
+            </p>
+            <a 
+              href="/contact-us"
+              className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-block"
+            >
+              Get Your Assessment
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

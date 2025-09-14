@@ -35,7 +35,8 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Express Entry",
       description: "Expert guidance through the Express Entry system for skilled worker immigration to Canada.",
-      category: "Permanent Residence"
+      category: "Permanent Residence",
+      link: "/express-entry"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -48,7 +49,8 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Study Permits",
       description: "Complete guidance for international students seeking educational opportunities in Canada.",
-      category: "Education"
+      category: "Education",
+      link: "/student-permit"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -68,13 +70,15 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Business Immigration",
       description: "Comprehensive support for entrepreneurs and business investors seeking Canadian residency.",
-      category: "Business"
+      category: "Business",
+      link: "/business-immigration"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Spousal Sponsorship",
       description: "Expert assistance with spousal and common-law partner sponsorship applications.",
-      category: "Family"
+      category: "Family",
+      link: "/spousal-sponsorship"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -94,7 +98,8 @@ const Services = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Judicial Review",
       description: "Expert legal representation for judicial review of immigration decisions.",
-      category: "Legal"
+      category: "Legal",
+      link: "/judicial-review"
     }
   ];
 

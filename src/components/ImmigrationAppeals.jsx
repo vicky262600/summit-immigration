@@ -298,13 +298,13 @@ const ImmigrationAppeals = () => {
             <p className="text-lg text-gray-600 mb-8">
               Summit Immigration Group represents clients on appeals to the Immigration Appeal Division. We can assist at all stages, including preparation of the notice of appeal, gathering and filing of evidence, preparation of submissions, and providing legal representation at the hearing itself. Please contact us immediately if you require counsel, and we can discuss your best options and outcomes based on an assessment.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                Schedule Free Consultation
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-                Call Us Now
-              </button>
+            <div className="flex justify-center">
+              <a 
+                href="/contact-us"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 inline-block"
+              >
+                Get Your Assessment
+              </a>
             </div>
           </div>
         </div>

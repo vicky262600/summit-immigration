@@ -39,7 +39,8 @@ const ServicesPage = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Express Entry",
       description: "Expert guidance through the Express Entry system for skilled worker immigration to Canada.",
-      category: "Permanent Residence"
+      category: "Permanent Residence",
+      link: "/express-entry"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -52,7 +53,8 @@ const ServicesPage = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Study Permits",
       description: "Complete guidance for international students seeking educational opportunities in Canada.",
-      category: "Education"
+      category: "Education",
+      link: "/student-permit"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -72,13 +74,15 @@ const ServicesPage = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Business Immigration",
       description: "Comprehensive support for entrepreneurs and business investors seeking Canadian residency.",
-      category: "Business"
+      category: "Business",
+      link: "/business-immigration"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Spousal Sponsorship",
       description: "Expert assistance with spousal and common-law partner sponsorship applications.",
-      category: "Family"
+      category: "Family",
+      link: "/spousal-sponsorship"
     },
     {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
@@ -98,7 +102,8 @@ const ServicesPage = () => {
       icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Judicial Review",
       description: "Expert legal representation for judicial review of immigration decisions.",
-      category: "Legal"
+      category: "Legal",
+      link: "/judicial-review"
     }
   ];
 
@@ -188,29 +193,6 @@ const ServicesPage = () => {
             ))}
           </div>
 
-          {/* CTA Section */}
-          <div 
-            className={`text-center mt-16 transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-            style={{ transitionDelay: '1.2s' }}
-          >
-            <h2 className="text-3xl font-bold text-blue-900 mb-6">
-              Ready to Start Your Immigration Journey?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-              Our experienced legal team is here to guide you through every step of your immigration process. 
-              Get a detailed assessment of your case and discover the best path forward.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                Get Detailed Assessment
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-                Schedule Consultation
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -257,6 +239,27 @@ const ServicesPage = () => {
                 Our track record speaks for itself with successful applications and satisfied clients across all immigration programs.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Just Above Footer */}
+      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Start Your Immigration Journey?
+            </h2>
+            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+              Our experienced legal team is here to guide you through every step of your immigration process. 
+              Get a detailed assessment of your case and discover the best path forward.
+            </p>
+            <a 
+              href="/contact-us"
+              className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-block"
+            >
+              Get Your Assessment
+            </a>
           </div>
         </div>
       </section>

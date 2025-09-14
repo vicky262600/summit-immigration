@@ -100,9 +100,9 @@ const ContactUsPage = () => {
                 <p className="text-white/90 mb-6">
                   Get a detailed evaluation of your immigration options at no cost.
                 </p>
-                <button className="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all w-full">
-                  Start Free Assessment
-                </button>
+                <p className="text-white text-center font-semibold">
+                  Fill out the form to get started
+                </p>
               </div>
             </div>
 

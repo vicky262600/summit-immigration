@@ -105,9 +105,9 @@ const CTASection = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="accent" size="lg" className="w-full">
-                  Start Free Assessment
-                </Button>
+                <p className="text-white text-center font-semibold">
+                  Fill out the form to get started
+                </p>
               </CardContent>
             </Card>
           </div>

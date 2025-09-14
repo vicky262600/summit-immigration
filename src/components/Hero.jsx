@@ -62,13 +62,13 @@ Summit Immigration Consulting Group engages exclusively in the practice of Canad
             }`}
             style={{ transitionDelay: '0.8s' }}
           >
-            <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group">
+            <a 
+              href="/contact-us"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group inline-block"
+            >
               Start Your Application
               <ArrowRight className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="border-2 border-white bg-transparent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-              Free Assessment
-            </button>
+            </a>
           </div>
 
           {/* Three Key Words */}

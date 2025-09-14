@@ -333,9 +333,12 @@ const RefugeeClaimsPage = () => {
                 </div>
               </div>
 
-              <button className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                Free Consultation
-              </button>
+              <a 
+                href="/contact-us"
+                className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 inline-block"
+              >
+                Get Your Assessment
+              </a>
             </div>
           </div>
         </div>

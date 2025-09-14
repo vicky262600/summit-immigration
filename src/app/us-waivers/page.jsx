@@ -311,13 +311,13 @@ const USWaiversPage = () => {
             Don't let your past prevent you from visiting friends and family in the USA. Let our experienced team help you 
             obtain the waiver you need for peace-of-mind travel.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-              Start Your Application
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-              Schedule Free Consultation
-            </button>
+          <div className="flex justify-center">
+            <a 
+              href="/contact-us"
+              className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-block"
+            >
+              Get Your Assessment
+            </a>
           </div>
         </div>
       </section>
