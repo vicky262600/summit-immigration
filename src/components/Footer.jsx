@@ -34,7 +34,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors flex items-center justify-center"
                 >
-                  <Facebook className="h-6 w-6" />
+                  <Facebook className="h-5 w-5" />
                 </a>
                 <a 
                   href="https://instagram.com/summit_immigration416" 
@@ -42,7 +42,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="bg-pink-600 hover:bg-pink-700 p-2 rounded-lg transition-colors flex items-center justify-center"
                 >
-                  <Instagram className="h-6 w-6" />
+                  <Instagram className="h-5 w-5" />
                 </a>
               <a 
                 href="https://x.com/summitgroup416" 
@@ -50,9 +50,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="bg-black hover:bg-gray-800 p-2 rounded-lg transition-colors flex items-center justify-center"
               >
-                <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
+                <span className="text-white text-xl font-bold">𝕏</span>
               </a>
             </div>
           </div>
@@ -105,7 +103,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Summit Immigration Consulting Group. All Rights Reserved.</p>
+          <p>&copy; 2024 Summit Immigration Consulting Group. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

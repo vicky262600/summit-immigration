@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,10 +12,70 @@ import {
   MapPin, 
   Clock,
   Send,
-  FileText
+  FileText,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 
 const CTASection = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        to_name: 'Summit Immigration Consulting Group'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
@@ -124,64 +188,127 @@ const CTASection = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                      <CheckCircle className="h-5 w-5 text-green-600" />
+                      <p className="text-green-800">Message sent successfully! We'll get back to you within 24 hours.</p>
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3">
+                      <AlertCircle className="h-5 w-5 text-red-600" />
+                      <p className="text-red-800">Failed to send message. Please try again or contact us directly.</p>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
+                        First Name *
+                      </label>
+                      <Input 
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="Your first name" 
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
+                        Last Name *
+                      </label>
+                      <Input 
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        placeholder="Your last name" 
+                        required
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                      First Name
+                      Email Address *
                     </label>
-                    <Input placeholder="Your first name" />
+                    <Input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="your.email@example.com" 
+                      required
+                    />
                   </div>
+
                   <div>
                     <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                      Last Name
+                      Phone Number
                     </label>
-                    <Input placeholder="Your last name" />
+                    <Input 
+                      type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="+1 (555) 123-4567" 
+                    />
                   </div>
-                </div>
 
-                <div>
-                  <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                    Email Address
-                  </label>
-                  <Input type="email" placeholder="your.email@example.com" />
-                </div>
+                  <div>
+                    <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
+                      Immigration Service
+                    </label>
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="Work Permits">Work Permits</option>
+                      <option value="Express Entry">Express Entry</option>
+                      <option value="Provincial Nominee Programs">Provincial Nominee Programs</option>
+                      <option value="Study Permits">Study Permits</option>
+                      <option value="Visitor Visas">Visitor Visas</option>
+                      <option value="Super Visas">Super Visas</option>
+                      <option value="Business Immigration">Business Immigration</option>
+                      <option value="Spousal Sponsorship">Spousal Sponsorship</option>
+                      <option value="Citizenship Applications">Citizenship Applications</option>
+                      <option value="US Waivers">US Waivers</option>
+                      <option value="Judicial Review">Judicial Review</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                    Phone Number
-                  </label>
-                  <Input type="tel" placeholder="+1 (555) 123-4567" />
-                </div>
+                  <div>
+                    <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
+                      Message *
+                    </label>
+                    <Textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Tell us about your immigration goals and any specific questions you have..."
+                      rows={4}
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                    Immigration Service
-                  </label>
-                  <select className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900">
-                    <option>Select a service</option>
-                    <option>Work Permit</option>
-                    <option>Study Permit</option>
-                    <option>Federal Skilled Worker</option>
-                    <option>Family Sponsorship</option>
-                    <option>Business Immigration</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-[hsl(var(--text-dark))] mb-2 block">
-                    Message
-                  </label>
-                  <Textarea 
-                    placeholder="Tell us about your immigration goals and any specific questions you have..."
-                    rows={4}
-                  />
-                </div>
-
-                <Button variant="hero" size="lg" className="w-full group">
-                  Send Message
-                  <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  <Button 
+                    type="submit"
+                    variant="hero" 
+                    size="lg" 
+                    className="w-full group"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>

@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { 
@@ -6,10 +10,70 @@ import {
   MapPin, 
   Clock,
   Send,
-  FileText
+  FileText,
+  CheckCircle,
+  AlertCircle
 } from "lucide-react";
 
 const ContactUsPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
+
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        to_name: 'Summit Immigration Consulting Group'
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6" />,
@@ -118,25 +182,48 @@ const ContactUsPage = () => {
                   </p>
                 </div>
                 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Success/Error Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                      <CheckCircle className="h-5 w-5 text-green-600" />
+                      <p className="text-green-800">Message sent successfully! We'll get back to you within 24 hours.</p>
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3">
+                      <AlertCircle className="h-5 w-5 text-red-600" />
+                      <p className="text-red-800">Failed to send message. Please try again or contact us directly.</p>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-gray-700 mb-2 block">
-                        First Name
+                        First Name *
                       </label>
                       <input 
                         type="text" 
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         placeholder="Your first name"
+                        required
                         className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                     </div>
                     <div>
                       <label className="text-sm font-medium text-gray-700 mb-2 block">
-                        Last Name
+                        Last Name *
                       </label>
                       <input 
                         type="text" 
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         placeholder="Your last name"
+                        required
                         className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       />
                     </div>
@@ -144,11 +231,15 @@ const ContactUsPage = () => {
 
                   <div>
                     <label className="text-sm font-medium text-gray-700 mb-2 block">
-                      Email Address
+                      Email Address *
                     </label>
                     <input 
                       type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="your.email@example.com"
+                      required
                       className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
@@ -159,6 +250,9 @@ const ContactUsPage = () => {
                     </label>
                     <input 
                       type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="+1 (555) 123-4567"
                       className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
@@ -168,33 +262,49 @@ const ContactUsPage = () => {
                     <label className="text-sm font-medium text-gray-700 mb-2 block">
                       Immigration Service
                     </label>
-                    <select className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                      <option>Select a service</option>
-                      <option>Work Permit</option>
-                      <option>Study Permit</option>
-                      <option>Express Entry</option>
-                      <option>Provincial Nominee Program</option>
-                      <option>Family Sponsorship</option>
-                      <option>Refugee Claims</option>
-                      <option>Immigration Appeals</option>
-                      <option>Business Immigration</option>
-                      <option>Other</option>
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="Work Permits">Work Permits</option>
+                      <option value="Express Entry">Express Entry</option>
+                      <option value="Provincial Nominee Programs">Provincial Nominee Programs</option>
+                      <option value="Study Permits">Study Permits</option>
+                      <option value="Visitor Visas">Visitor Visas</option>
+                      <option value="Super Visas">Super Visas</option>
+                      <option value="Business Immigration">Business Immigration</option>
+                      <option value="Spousal Sponsorship">Spousal Sponsorship</option>
+                      <option value="Citizenship Applications">Citizenship Applications</option>
+                      <option value="US Waivers">US Waivers</option>
+                      <option value="Judicial Review">Judicial Review</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="text-sm font-medium text-gray-700 mb-2 block">
-                      Message
+                      Message *
                     </label>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Tell us about your immigration goals and any specific questions you have..."
                       rows={4}
+                      required
                       className="w-full p-3 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
-                  <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full group">
-                    Send Message
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full group disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Send className="ml-2 h-5 w-5 inline group-hover:translate-x-1 transition-transform" />
                   </button>
                 </form>

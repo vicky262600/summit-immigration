@@ -213,7 +213,7 @@ const About = () => {
                          // Robert Gertler - use robert Gtlr.jpg
                          <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
                            <Image
-                             src="/robert Gtlr.jpg"
+                             src="/robert.jpg"
                              alt={member.name}
                              width={112}
                              height={112}
