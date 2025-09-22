@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, BookOpen, DollarSign, FileText, Shield, Globe, Users, Award, Briefcase, Clock, TrendingUp, GraduationCap } from 'lucide-react';
@@ -33,7 +34,7 @@ const StudentPermitPage = () => {
 
   const eligibilityRequirements = [
     {
-      icon: <BookOpen className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Enrolled at a DLI",
       description: "You must be enrolled at a Designated Learning Institution (DLI) in Canada to apply for a study permit.",
       details: [
@@ -42,7 +43,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <DollarSign className="h-8 w-8 text-green-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Proof of Financial Support",
       description: "You must demonstrate that you have sufficient funds to cover tuition fees and living expenses.",
       details: [
@@ -52,7 +53,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <Shield className="h-8 w-8 text-purple-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Clean Background",
       description: "You must have no criminal record and be in good health to study in Canada.",
       details: [
@@ -63,7 +64,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <Globe className="h-8 w-8 text-orange-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Intent to Leave Canada",
       description: "You must convince an immigration officer that you will leave Canada when your study permit expires.",
       details: [
@@ -76,22 +77,22 @@ const StudentPermitPage = () => {
 
   const requiredDocuments = [
     {
-      icon: <FileText className="h-6 w-6 text-blue-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Acceptance Letter",
       description: "Official letter from an accredited Canadian college or university"
     },
     {
-      icon: <BookOpen className="h-6 w-6 text-green-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Provincial Attestation Letter",
       description: "Required letter from the province where you'll be studying (Quebec Acceptance Certificate in Quebec)"
     },
     {
-      icon: <Shield className="h-6 w-6 text-purple-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Proof of Identity",
       description: "Valid passport copy and other identity documents"
     },
     {
-      icon: <DollarSign className="h-6 w-6 text-orange-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Proof of Funding",
       description: "Evidence of at least $20,635 CAD for living expenses"
     }
@@ -118,7 +119,7 @@ const StudentPermitPage = () => {
 
   const prPathways = [
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Express Entry",
       description: "Former international students are well-positioned for Express Entry, especially the Canadian Experience Class (CEC).",
       benefits: [
@@ -129,7 +130,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <Globe className="h-8 w-8 text-green-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Provincial Nominee Program (PNP)",
       description: "Many PNP streams specifically target former international students or reward Canadian education.",
       benefits: [
@@ -140,7 +141,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <Award className="h-8 w-8 text-purple-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Post-Graduation Work Permit (PGWP)",
       description: "Work in Canada for up to three years after graduation, gaining valuable Canadian work experience.",
       benefits: [
@@ -151,7 +152,7 @@ const StudentPermitPage = () => {
       ]
     },
     {
-      icon: <Briefcase className="h-8 w-8 text-orange-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Quebec Immigration",
       description: "Quebec operates its own immigration system with programs specifically for international students.",
       benefits: [
@@ -377,11 +378,11 @@ const StudentPermitPage = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="space-y-6">
             {studyPermitUpdates.map((update, index) => (
               <div
                 key={index}
-                className={`group bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 border border-gray-200 shadow-lg ${
+                className={`flex items-start gap-4 ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
                 }`}
                 style={{
@@ -389,16 +390,14 @@ const StudentPermitPage = () => {
                   transitionDuration: '0.8s',
                 }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    {update.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-blue-900 mb-2 group-hover:text-blue-700 transition-colors">
-                      {update.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">{update.description}</p>
-                  </div>
+                <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                  <span className="text-blue-600 text-lg">•</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-blue-900 mb-2">
+                    {update.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">{update.description}</p>
                 </div>
               </div>
             ))}

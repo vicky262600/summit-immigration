@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle, FileText, Shield, Calendar, Users, AlertCircle } from 'lucide-react';
+import { CheckCircle, FileText, Shield, AlertCircle } from 'lucide-react';
 
 const SuperVisaPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,22 +34,22 @@ const SuperVisaPage = () => {
 
   const superVisaBenefits = [
     {
-      icon: <Calendar className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Extended Stay",
       description: "Visit Canada for up to 5 years without having to renew your status."
     },
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Family Reunification",
       description: "Perfect for parents and grandparents to spend extended time with their Canadian family."
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Multiple Entries",
       description: "Provides multiple entries for a period of up to 10 years."
     },
     {
-      icon: <FileText className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Extension Available",
       description: "Apply for an extension of 2 years, enabling up to 7 years on a single stay."
     }
@@ -314,7 +315,7 @@ const SuperVisaPage = () => {
                     key={index}
                     className="flex items-start gap-3"
                   >
-                    <AlertCircle className="h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{note}</span>
                   </li>
                 ))}

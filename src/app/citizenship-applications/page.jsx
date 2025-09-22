@@ -115,7 +115,7 @@ const CitizenshipApplicationsPage = () => {
             }`}
             style={{ transitionDelay: '0.4s' }}
           >
-            Canadian Citizenship Applications
+            Citizenship Applications
           </h1>
 
           <p
@@ -216,11 +216,7 @@ const CitizenshipApplicationsPage = () => {
                       key={reqIndex}
                       className="flex items-start gap-2 text-sm text-gray-600"
                     >
-                      {info.title.includes('Prohibitions') ? (
-                        <AlertCircle className="h-4 w-4 text-red-500 flex-shrink-0 mt-0.5" />
-                      ) : (
-                        <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      )}
+                      <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
                       <span>{req}</span>
                     </li>
                   ))}

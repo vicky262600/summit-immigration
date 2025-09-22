@@ -16,7 +16,7 @@ const Header = () => {
             <div className="flex flex-wrap items-center justify-center md:justify-start space-x-4 md:space-x-6 mb-1 md:mb-0">
               <div className="flex items-center space-x-2 hover:text-blue-200 transition-colors cursor-pointer">
                 <Phone className="h-3 w-3 text-blue-300" />
-                <span className="font-medium">+1 (416) 123-4567</span>
+                <span className="font-medium">+1 (647) 854-3513</span>
               </div>
               <div className="flex items-center space-x-2 hover:text-blue-200 transition-colors cursor-pointer">
                 <Mail className="h-3 w-3 text-blue-300" />
@@ -25,7 +25,7 @@ const Header = () => {
               <div className="flex items-center space-x-2 hover:text-blue-200 transition-colors cursor-pointer">
                 <MapPin className="h-3 w-3 text-blue-300" />
                 <span className="font-medium">
-                  Toronto, Canada | London, UK | New York, USA
+                30 Quarry Ridge Road, Barrie, ON L4M 7G1
                 </span>
               </div>
             </div>

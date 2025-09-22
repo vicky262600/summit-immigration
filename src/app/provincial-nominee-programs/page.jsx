@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CheckCircle, MapPin, Users, Briefcase } from 'lucide-react';
+import { CheckCircle, MapPin } from 'lucide-react';
 
 const ProvincialNomineeProgramsPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,17 +34,17 @@ const ProvincialNomineeProgramsPage = () => {
 
   const pnpProcess = [
     {
-      icon: <CheckCircle className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Eligibility",
       description: "You must meet the eligibility criteria for the specific PNP stream in the province or territory you wish to settle in, such as the Manitoba Provincial Nominee Program (MPNP)."
     },
     {
-      icon: <Briefcase className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Application",
       description: "Apply for a nomination to the province or territory directly."
     },
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Permanent Residency",
       description: "If your application for nomination is approved, you will then apply to the federal government (IRCC) for permanent residence."
     }
@@ -269,7 +270,7 @@ const ProvincialNomineeProgramsPage = () => {
       {/* Points System Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-blue-900 mb-8">
               Points System and Eligibility
             </h2>
@@ -279,40 +280,30 @@ const ProvincialNomineeProgramsPage = () => {
               who can apply or receive an invitation. Points are typically based on a combination of:
             </p>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">👤</span>
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">Age</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">💼</span>
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">Work Experience</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">🎓</span>
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">Education</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">🗣️</span>
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">Language</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">🔗</span>
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 mb-2">Provincial Connections</h3>
-              </div>
-            </div>
+            <ul className="space-y-3 mb-8">
+              <li className="flex items-center">
+                <span className="text-blue-600 mr-3">•</span>
+                <span className="text-gray-700">Age</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-blue-600 mr-3">•</span>
+                <span className="text-gray-700">Work Experience</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-blue-600 mr-3">•</span>
+                <span className="text-gray-700">Education</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-blue-600 mr-3">•</span>
+                <span className="text-gray-700">Language</span>
+              </li>
+              <li className="flex items-center">
+                <span className="text-blue-600 mr-3">•</span>
+                <span className="text-gray-700">Provincial Connections</span>
+              </li>
+            </ul>
             
-            <p className="text-sm text-gray-500 mt-8">
+            <p className="text-sm text-gray-500">
               Note: Not all nominee programs use a points system to rank their candidates.
             </p>
           </div>

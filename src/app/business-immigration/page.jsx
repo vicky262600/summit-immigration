@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, Briefcase, DollarSign, Users, FileText, Globe, Building, TrendingUp } from 'lucide-react';
@@ -33,17 +34,17 @@ const BusinessImmigrationPage = () => {
 
   const businessPrograms = [
     {
-      icon: <Building className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Start-up Visa Program",
       description: "Targets immigrant entrepreneurs with skills to build innovative businesses that create jobs and compete globally."
     },
     {
-      icon: <Globe className="h-8 w-8 text-green-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Provincial Nominee Programs",
       description: "Each province has business immigration programs with specific criteria for entrepreneurs and investors."
     },
     {
-      icon: <DollarSign className="h-8 w-8 text-purple-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Quebec Investor Program",
       description: "Specialized program for investors looking to establish businesses in Quebec."
     }
@@ -86,27 +87,27 @@ const BusinessImmigrationPage = () => {
 
   const businessVisitorActivities = [
     {
-      icon: <Briefcase className="h-6 w-6 text-blue-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Business Meetings & Conferences",
       description: "Attending business meetings, conferences, conventions, fairs, etc."
     },
     {
-      icon: <DollarSign className="h-6 w-6 text-green-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Buying Canadian Goods/Services",
       description: "Buying Canadian goods or services on behalf of a foreign entity"
     },
     {
-      icon: <FileText className="h-6 w-6 text-purple-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Taking Orders",
       description: "Taking orders for goods or services"
     },
     {
-      icon: <Users className="h-6 w-6 text-orange-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "After-Sales Service",
       description: "Providing after-sales service, excluding hands-on work in construction trades"
     },
     {
-      icon: <TrendingUp className="h-6 w-6 text-red-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Training Programs",
       description: "Being trained by a Canadian parent company for work outside of Canada"
     }
@@ -284,26 +285,24 @@ const BusinessImmigrationPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {provincialPrograms.map((program, index) => (
-              <div
-                key={index}
-                className={`group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 border border-gray-200 shadow-lg text-center ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: `${index * 0.1}s`,
-                  transitionDuration: '0.8s',
-                }}
-              >
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {program.icon}
-                </div>
-                <h3 className="text-lg font-bold text-blue-900 group-hover:text-blue-700 transition-colors">
-                  {program.province}
-                </h3>
-              </div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <ul className="grid md:grid-cols-2 gap-4">
+              {provincialPrograms.map((program, index) => (
+                <li
+                  key={index}
+                  className={`flex items-center gap-3 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 0.1}s`,
+                    transitionDuration: '0.8s',
+                  }}
+                >
+                  <span className="text-blue-600 text-lg">•</span>
+                  <span className="text-gray-700 font-medium">{program.province}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -423,12 +422,12 @@ const BusinessImmigrationPage = () => {
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
               {eligibilityRequirements.map((requirement, index) => (
                 <div
                   key={index}
-                  className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-gray-200 ${
+                  className={`flex items-start gap-4 ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
                   }`}
                   style={{
@@ -436,16 +435,14 @@ const BusinessImmigrationPage = () => {
                     transitionDuration: '0.8s',
                   }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      {requirement.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-blue-900 mb-2 group-hover:text-blue-700 transition-colors">
-                        {requirement.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{requirement.description}</p>
-                    </div>
+                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                    <span className="text-blue-600 text-lg">•</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-blue-900 mb-2">
+                      {requirement.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">{requirement.description}</p>
                   </div>
                 </div>
               ))}

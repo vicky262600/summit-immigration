@@ -81,8 +81,8 @@ const CTASection = () => {
       icon: <Phone className="h-6 w-6" />,
       title: "Call Us",
       description: "Speak with our immigration experts",
-      value: "+1 (416) 123-4567",
-      action: "tel:+14161234567"
+      value: "+1 (647) 854-3513",
+      action: "tel:+16478543513"
     },
     {
       icon: <Mail className="h-6 w-6" />,
@@ -94,8 +94,8 @@ const CTASection = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Visit Our Offices",
-      description: "Toronto • London • New York",
-      value: "Multiple Locations",
+      description: "Two convenient locations in Ontario",
+      value: "Main: 30 Quarry Ridge Road, Barrie, ON L4M 7G1\nBranch: 30 Eglinton Ave W, Mississauga, ON L5R 3E7",
       action: "#"
     },
     {
@@ -146,9 +146,16 @@ const CTASection = () => {
                           <p className="text-sm text-[hsl(var(--text-light))] mb-2">
                             {info.description}
                           </p>
-                          <p className="text-[hsl(var(--primary-blue))] font-medium">
-                            {info.value}
-                          </p>
+                          <div className="text-[hsl(var(--primary-blue))] font-medium">
+                            {info.title === "Visit Our Offices" ? (
+                              <div className="space-y-1">
+                                <p>Main branch: 30 Quarry Ridge Road, Barrie, ON L4M 7G1</p>
+                                <p>Sub-branch: 30 Eglinton Ave W, Mississauga, ON L5R 3E7</p>
+                              </div>
+                            ) : (
+                              <p>{info.value}</p>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </CardContent>

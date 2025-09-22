@@ -42,7 +42,7 @@ const ContactUsPage = () => {
 
     try {
       // Replace these with your actual EmailJS credentials
-      const serviceId = 'YOUR_SERVICE_ID';
+      const serviceId = 'service_z57xo3t';
       const templateId = 'YOUR_TEMPLATE_ID';
       const publicKey = 'YOUR_PUBLIC_KEY';
 
@@ -79,8 +79,8 @@ const ContactUsPage = () => {
       icon: <Phone className="h-6 w-6" />,
       title: "Call Us",
       description: "Speak with our immigration experts",
-      value: "+1 (416) 123-4567",
-      action: "tel:+14161234567"
+      value: "+1 (647) 854-3513",
+      action: "tel:+16478543513"
     },
     {
       icon: <Mail className="h-6 w-6" />,
@@ -92,8 +92,8 @@ const ContactUsPage = () => {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Visit Our Offices",
-      description: "Toronto • London • New York",
-      value: "Multiple Locations",
+      description: "Two convenient locations in Ontario",
+      value: "Main: 30 Quarry Ridge Road, Barrie, ON L4M 7G1\nBranch: 30 Eglinton Ave W, Mississauga, ON L5R 3E7",
       action: "#"
     },
     {
@@ -145,9 +145,16 @@ const ContactUsPage = () => {
                           <p className="text-sm text-gray-600 mb-2">
                             {info.description}
                           </p>
-                          <p className="text-blue-600 font-medium break-words">
-                            {info.value}
-                          </p>
+                          <div className="text-blue-600 font-medium break-words">
+                            {info.title === "Visit Our Offices" ? (
+                              <div className="space-y-1">
+                                <p>Main branch: 30 Quarry Ridge Road, Barrie, ON L4M 7G1</p>
+                                <p>Sub-branch: 30 Eglinton Ave W, Mississauga, ON L5R 3E7</p>
+                              </div>
+                            ) : (
+                              <p>{info.value}</p>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>

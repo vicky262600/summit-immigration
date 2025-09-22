@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, AlertTriangle, Heart, Users, FileText, Shield, DollarSign, Clock } from 'lucide-react';
@@ -33,17 +34,17 @@ const SpousalSponsorshipPage = () => {
 
   const eligibleSponsors = [
     {
-      icon: <Users className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Canadian Citizens",
       description: "Full Canadian citizens can sponsor their family members"
     },
     {
-      icon: <Shield className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Permanent Residents",
       description: "Permanent residents of Canada can sponsor eligible relatives"
     },
     {
-      icon: <Heart className="h-8 w-8 text-blue-600" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Registered Native Indians",
       description: "Registered Native Indians can sponsor family members"
     }
@@ -140,17 +141,17 @@ const SpousalSponsorshipPage = () => {
 
   const financialResponsibilities = [
     {
-      icon: <DollarSign className="h-6 w-6 text-green-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Financial Support",
       description: "You must commit to financially supporting them for up to 20 years"
     },
     {
-      icon: <Shield className="h-6 w-6 text-blue-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Government Assistance",
       description: "Ensure your relative doesn't need to seek financial assistance from the government"
     },
     {
-      icon: <FileText className="h-6 w-6 text-purple-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Withdrawal Rights",
       description: "You can withdraw your sponsorship application before they become permanent residents"
     }
@@ -273,31 +274,31 @@ const SpousalSponsorshipPage = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {eligibleRelatives.map((relative, index) => (
-              <div
-                key={index}
-                className={`group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 hover:shadow-2xl transition-all duration-700 hover:scale-105 border border-gray-200 shadow-lg ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: `${index * 0.1}s`,
-                  transitionDuration: '0.8s',
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    {relative.icon}
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              {eligibleRelatives.map((relative, index) => (
+                <div
+                  key={index}
+                  className={`flex items-start gap-4 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 0.1}s`,
+                    transitionDuration: '0.8s',
+                  }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                    <span className="text-blue-600 text-lg">•</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-blue-900 mb-2 group-hover:text-blue-700 transition-colors">
+                    <h3 className="text-lg font-bold text-blue-900 mb-2">
                       {relative.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{relative.description}</p>
+                    <p className="text-gray-600 leading-relaxed">{relative.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           <div className="mt-12 bg-yellow-50 border border-yellow-200 rounded-2xl p-8 max-w-4xl mx-auto">
@@ -332,31 +333,31 @@ const SpousalSponsorshipPage = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {sponsorshipRestrictions.map((restriction, index) => (
-              <div
-                key={index}
-                className={`group bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 border border-red-200 shadow-lg ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-                }`}
-                style={{
-                  transitionDelay: `${index * 0.1}s`,
-                  transitionDuration: '0.8s',
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    {restriction.icon}
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              {sponsorshipRestrictions.map((restriction, index) => (
+                <div
+                  key={index}
+                  className={`flex items-start gap-4 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 0.1}s`,
+                    transitionDuration: '0.8s',
+                  }}
+                >
+                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                    <span className="text-red-600 text-lg">•</span>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-lg font-bold text-red-900 mb-2">
                       {restriction.title}
                     </h3>
-                    <p className="text-gray-600">{restriction.description}</p>
+                    <p className="text-gray-600 leading-relaxed">{restriction.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

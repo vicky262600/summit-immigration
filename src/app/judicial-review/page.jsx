@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, AlertTriangle, Clock, FileText, Scale, Users } from 'lucide-react';
@@ -48,22 +49,22 @@ const JudicialReviewPage = () => {
 
   const groundsForReview = [
     {
-      icon: <AlertTriangle className="h-6 w-6 text-red-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Error of Law",
       description: "The officer misinterpreted or misapplied a law or policy."
     },
     {
-      icon: <FileText className="h-6 w-6 text-orange-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Procedural Error",
       description: "The decision-maker failed to follow proper procedures, such as denying you a fair chance to present your case."
     },
     {
-      icon: <AlertTriangle className="h-6 w-6 text-yellow-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Unreasonable Decision",
       description: "The decision was not logical, intelligible, or based on a rational analysis of the facts and law."
     },
     {
-      icon: <Scale className="h-6 w-6 text-purple-500" />,
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
       title: "Breach of Natural Justice",
       description: "The officer acted with bias or a conflict of interest."
     }
@@ -73,22 +74,22 @@ const JudicialReviewPage = () => {
     {
       title: "Time Limits",
       description: "You have 60 days to start the Judicial Review process for applications made outside Canada and 15 days for applications made inside Canada.",
-      icon: <Clock className="h-5 w-5 text-blue-500" />
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />
     },
     {
       title: "No New Evidence",
       description: "You cannot provide new documents or information during the Judicial Review process. You must rely on the materials provided in your application.",
-      icon: <FileText className="h-5 w-5 text-orange-500" />
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />
     },
     {
       title: "Process Duration",
       description: "Timeline can range between 2 - 8 months depending on how far you get into the appeal process and if an early resolution can be reached.",
-      icon: <Clock className="h-5 w-5 text-green-500" />
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />
     },
     {
       title: "Success Rate",
       description: "Judicial Review cases can be tough to win and are only reserved for strong applications that have been unjustly refused.",
-      icon: <AlertTriangle className="h-5 w-5 text-red-500" />
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />
     }
   ];
 
@@ -312,21 +313,23 @@ const JudicialReviewPage = () => {
               Summit Immigration Consulting Group specializes in Judicial Review for various immigration matters:
             </p>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {specializedServices.map((service, index) => (
-                <div
-                  key={index}
-                  className="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-500 hover:scale-105 border border-blue-200"
-                >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <CheckCircle className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <p className="text-gray-700 font-semibold text-lg">{service}</p>
-                </div>
-              ))}
+            <div className="max-w-4xl mx-auto">
+              <ul className="space-y-4">
+                {specializedServices.map((service, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
+                      <span className="text-blue-600 text-lg">•</span>
+                    </div>
+                    <span className="text-gray-700 font-medium">{service}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-2xl p-8 shadow-lg">
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-2xl p-8 shadow-lg mt-12">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
                   <AlertTriangle className="h-6 w-6 text-white" />

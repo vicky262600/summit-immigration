@@ -123,7 +123,7 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Summit Immigration Consulting Group engages exclusively in the practice of Canadian Immigration law and International Recruitment. Our lawyers and certified Immigration Specialists are based in Toronto, Canada.
+              Summit Immigration Consulting Group engages exclusively in the practice of Canadian Immigration law and International Recruitment. Our lawyers and certified Immigration Specialists are based in Barrie and Mississauga, Ontario, Canada.
             </p>
             
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">

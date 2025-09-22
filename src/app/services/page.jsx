@@ -104,6 +104,13 @@ const ServicesPage = () => {
       description: "Expert legal representation for judicial review of immigration decisions.",
       category: "Legal",
       link: "/judicial-review"
+    },
+    {
+      icon: <Image src="/finalMark.png" alt="Checkmark" width={44} height={44} className="w-11 h-11" />,
+      title: "International Recruitment",
+      description: "Specialized recruitment services connecting global talent with Canadian employers.",
+      category: "Recruitment",
+      link: "/international-recruitment"
     }
   ];
 
