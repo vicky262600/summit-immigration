@@ -28,27 +28,27 @@ const Footer = () => {
             
             {/* Social Media Links */}
             <div className="flex space-x-4">
-                <a 
-                  href="https://facebook.com/summitimmigration" 
-                  target="_blank" 
+                <a
+                  href="https://facebook.com/summitimmigration"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors flex items-center justify-center"
+                  className="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full transition-colors flex items-center justify-center"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a 
-                  href="https://instagram.com/summit_immigration416" 
-                  target="_blank" 
+                <a
+                  href="https://instagram.com/summit_immigration416"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-pink-600 hover:bg-pink-700 p-2 rounded-lg transition-colors flex items-center justify-center"
+                  className="bg-pink-600 hover:bg-pink-700 w-10 h-10 rounded-full transition-colors flex items-center justify-center"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
-              <a 
-                href="https://x.com/summitgroup416" 
-                target="_blank" 
+              <a
+                href="https://x.com/summitgroup416"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="bg-black hover:bg-gray-800 p-2 rounded-lg transition-colors flex items-center justify-center"
+                className="bg-black hover:bg-gray-800 w-10 h-10 rounded-full transition-colors flex items-center justify-center"
               >
                 <span className="text-white text-2xl font-bold">𝕏</span>
               </a>

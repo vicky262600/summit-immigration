@@ -65,7 +65,7 @@ const VisitorVisaPage = () => {
         <div
           className="absolute inset-0 bg-cover"
           style={{ 
-            backgroundImage: `url('/visvisa.jpg')`,
+            backgroundImage: `url('/visvisa2.jpg')`,
             backgroundPosition: 'center top 15%'
           }}
         />

@@ -177,8 +177,8 @@ const BusinessImmigrationPage = () => {
       {/* Hero Section */}
       <section className="relative min-h-[400px] flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/business1.jpg')` }}
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: `url('/business2.jpg')`, backgroundPosition: 'center 10%' }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 

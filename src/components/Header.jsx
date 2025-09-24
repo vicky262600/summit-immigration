@@ -85,7 +85,7 @@ const Header = () => {
               className="hidden md:block px-4 py-2 text-base border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
               onClick={() => (window.location.href = '/contact-us')}
             >
-              Assessment
+              Consultation
             </button>
             
             {/* Mobile Menu Button */}
@@ -131,7 +131,7 @@ const Header = () => {
                     setIsMobileMenuOpen(false);
                   }}
                 >
-                  Assessment
+                  Consultation
                 </button>
               </div>
             </div>

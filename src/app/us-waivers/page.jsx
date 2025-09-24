@@ -112,7 +112,7 @@ const USWaiversPage = () => {
       <section className="relative min-h-[400px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/uswvr.jfif')` }}
+          style={{ backgroundImage: `url('/US.jpg')` }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
