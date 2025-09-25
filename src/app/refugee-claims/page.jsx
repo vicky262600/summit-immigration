@@ -258,7 +258,7 @@ const RefugeeClaimsPage = () => {
               <div className="space-y-6">
                 <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src="/refugee1.jpg"
+                    src="/spo1.jpg"
                     alt="Refugee Protection Division Process"
                     fill
                     className="object-cover"

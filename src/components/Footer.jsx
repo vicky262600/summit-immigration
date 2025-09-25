@@ -116,10 +116,10 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-1" />
                 <div>
-                  <p className="font-semibold">Main branch:</p>
+                  <p className="font-semibold">Office:</p>
                   <p>30 Quarry Ridge Road</p>
                   <p>Barrie, ON L4M 7G1, Canada</p>
-                  <p className="font-semibold mt-3">Sub-branch:</p>
+                  <p className="font-semibold mt-3">Other Office:</p>
                   <p>30 Eglinton Ave W</p>
                   <p>Mississauga, ON L5R 3E7, Canada</p>
                 </div>

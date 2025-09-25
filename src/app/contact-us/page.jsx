@@ -148,8 +148,8 @@ const ContactUsPage = () => {
                           <div className="text-blue-600 font-medium break-words">
                             {info.title === "Visit Our Offices" ? (
                               <div className="space-y-1">
-                                <p>Main branch: 30 Quarry Ridge Road, Barrie, ON L4M 7G1</p>
-                                <p>Sub-branch: 30 Eglinton Ave W, Mississauga, ON L5R 3E7</p>
+                                <p>Office: 30 Quarry Ridge Road, Barrie, ON L4M 7G1</p>
+                                <p>Other Office: 30 Eglinton Ave W, Mississauga, ON L5R 3E7</p>
                               </div>
                             ) : (
                               <p>{info.value}</p>

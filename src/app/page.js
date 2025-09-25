@@ -15,7 +15,7 @@ export default function Page() {
       <Hero />
       <ServiceCategories />
       <Services />
-      <ExpressEntry />
+      {/* <ExpressEntry /> */}
       {/* <ProvincialPrograms /> */}
       <WhyChooseCanada />
       <CTASection />
