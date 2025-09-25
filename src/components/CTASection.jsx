@@ -44,9 +44,9 @@ const CTASection = () => {
 
     try {
       // Replace these with your actual EmailJS credentials
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_6sopjxn';
+      const templateId = 'template_ylso5eo';
+      const publicKey = 'nDfB-4I6fhJ-sJCul';
 
       const templateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`,
@@ -200,7 +200,10 @@ const CTASection = () => {
                   {submitStatus === 'success' && (
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
                       <CheckCircle className="h-5 w-5 text-green-600" />
-                      <p className="text-green-800">Message sent successfully! We'll get back to you within 24 hours.</p>
+                      <div>
+                        <p className="text-green-800 font-semibold">Thank you! We have received your email.</p>
+                        <p className="text-green-700 text-sm mt-1">Our team will review your message and get back to you as soon as possible.</p>
+                      </div>
                     </div>
                   )}
                   
