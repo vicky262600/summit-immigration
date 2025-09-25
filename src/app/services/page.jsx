@@ -152,7 +152,7 @@ const ServicesPage = () => {
               }`}
               style={{ transitionDelay: '0.6s' }}
             >
-              Comprehensive immigration solutions for Canada, United Kingdom, and United States. 
+              Comprehensive immigration solutions for Canada. 
               Our expert team provides professional guidance at every step of your journey.
             </p>
           </div>
