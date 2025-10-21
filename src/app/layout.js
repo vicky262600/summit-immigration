@@ -15,6 +15,14 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Summit Immigration Consulting Group",
   description: "",
+  images: [
+    {
+      url: "/summitLogo.png", // Add your preview image
+      width: 1200,
+      height: 630,
+      alt: "Summit Immigration Consulting Group",
+    },
+  ]
 };
 
 export default function RootLayout({ children }) {
