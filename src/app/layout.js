@@ -16,16 +16,19 @@ export const metadata = {
   title: "Summit Immigration Consulting Group",
   description: "",
   openGraph: {
+    title: "Summit Immigration Consulting Group",
+    description: "",
     images: [
       {
-        url: "/summitLogo.png", // Add your preview image
+        url: "/summitLogo.png", // must be in your public folder
         width: 1200,
         height: 630,
         alt: "Summit Immigration Consulting Group",
       },
-    ]
-  }
+    ],
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
