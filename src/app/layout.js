@@ -21,8 +21,8 @@ export const metadata = {
     images: [
       {
         url: "/summitLogo.png", // must be in your public folder
-        width: 1200,
-        height: 630,
+        width: 400,
+        height: 400,
         alt: "Summit Immigration Consulting Group",
       },
     ],
